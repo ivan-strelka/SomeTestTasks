@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class MainPage extends WebDriverSettings {
 
     @FindBy(xpath = "//input[@class='fast-search__input']")
-    private WebElement fast_search_input;
+    protected WebElement fast_search_input;
 
     public MainPage() {
         PageFactory.initElements(driver, this);

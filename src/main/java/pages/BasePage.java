@@ -14,9 +14,9 @@ import java.util.Locale;
 public class BasePage extends WebDriverSettings {
 
     @FindBy(xpath = "//a[@class='button button_orange product__button']")
-    private List<WebElement> allElementsOnIframe;
+    protected List<WebElement> allElementsOnIframe;
     @FindBy(xpath = "//tr//td//p//a//span")
-    private List<WebElement> allElementsOnResultPage;
+    protected List<WebElement> allElementsOnResultPage;
 
     public BasePage() {
         PageFactory.initElements(driver, this);
@@ -56,14 +56,14 @@ public class BasePage extends WebDriverSettings {
         boolean flag = false;
         if (getMiddleSumAllItemsOnPage() > comparator) {
             System.out.println("Средняя цена за предмет больше чем " + comparator);
-            return flag = true;
+            flag = true;
         } else if (getMiddleSumAllItemsOnPage() < comparator) {
             System.out.println("Средняя цена за предмет меньше чем " + comparator);
-            return flag = false;
+            flag = false;
         }
         if (getMiddleSumAllItemsOnPage() == comparator) {
             System.out.println("Средняя цена за предмет равна " + comparator);
-            return flag = false;
+            flag = false;
         }
         return flag;
     }
