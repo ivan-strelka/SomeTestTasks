@@ -34,7 +34,7 @@ public class MainPageTest extends WebDriverSettings {
         basePage.switchToIFrame(By.xpath("//iframe[@class='modal-iframe']"));
         basePage.clickToItemOnIframe(2);
         basePage.switchToDefaultFrameContent();
-        basePage.checkSumAllPrice();
+        assertThat(basePage.checkMiddlePriceIsMoreThan(100)).isTrue();
     }
 
     @AfterMethod

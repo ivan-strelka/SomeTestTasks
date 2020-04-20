@@ -35,9 +35,9 @@ public class BasePage extends WebDriverSettings {
         elements.get(numberOfItem - 1).click();
     }
 
-    public double checkSumAllPrice() throws ParseException {
+    public double getMiddleSumAllItemsOnPage() throws ParseException {
         List<WebElement> elements = allElementsOnResultPage;
-        System.out.println("Это длина коллекции = " + elements.size());
+        System.out.println("Длина коллекции и количество товаров= " + elements.size());
         double sum = 0;
         for (WebElement element : elements) {
             NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
@@ -48,8 +48,26 @@ public class BasePage extends WebDriverSettings {
             }
         }
         System.out.println("Сумма всех товаров = " + sum);
-        return sum;
+        System.out.println("Средняя стоимость товаров = " + sum / elements.size());
+        return sum / elements.size();
     }
+
+    public boolean checkMiddlePriceIsMoreThan(int comparator) throws ParseException {
+        boolean flag = false;
+        if (getMiddleSumAllItemsOnPage() > comparator) {
+            System.out.println("Средняя цена за предмет больше чем " + comparator);
+            return flag = true;
+        } else if (getMiddleSumAllItemsOnPage() < comparator) {
+            System.out.println("Средняя цена за предмет меньше чем " + comparator);
+            return flag = false;
+        }
+        if (getMiddleSumAllItemsOnPage() == comparator) {
+            System.out.println("Средняя цена за предмет равна " + comparator);
+            return flag = false;
+        }
+        return flag;
+    }
+
 
     //Можно еще так
     public void clickToItemOnIframe2(int numberOfItem) {
