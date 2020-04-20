@@ -37,7 +37,6 @@ public class BasePage extends WebDriverSettings {
 
     public double getMiddleSumAllItemsOnPage() throws ParseException {
         List<WebElement> elements = allElementsOnResultPage;
-        System.out.println("Длина коллекции и количество товаров= " + elements.size());
         double sum = 0;
         for (WebElement element : elements) {
             NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
@@ -47,8 +46,9 @@ public class BasePage extends WebDriverSettings {
                 sum += onePrice;
             }
         }
+        System.out.println("Количество товаров = " + elements.size());
         System.out.println("Сумма всех товаров = " + sum);
-        System.out.println("Средняя стоимость товаров = " + sum / elements.size());
+        System.out.println("Средняя цена за предмет  = " + sum / elements.size());
         return sum / elements.size();
     }
 
