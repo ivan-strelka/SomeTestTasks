@@ -14,11 +14,10 @@ public class MainPage extends WebDriverSettings {
         PageFactory.initElements(driver, this);
     }
 
-    public MainPage typeTextInFastSearchInput(String text) {
+    public void typeTextInFastSearchInput(String text) {
         fast_search_input.clear();
         fast_search_input.click();
         fast_search_input.sendKeys(text);
-        return new MainPage();
     }
 
     public boolean atMainPage() {

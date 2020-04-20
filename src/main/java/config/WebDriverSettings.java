@@ -48,7 +48,7 @@ public class WebDriverSettings {
         }
 
         driver.manage().deleteAllCookies();
-        driver.manage().window().setSize(new Dimension(1200, 800));
+        driver.manage().window().setSize(new Dimension(1000, 700));
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(properties.getProperty("url"));
 
