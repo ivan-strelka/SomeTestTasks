@@ -1,14 +1,11 @@
 package tests;
 
 import config.WebDriverSettings;
-import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.MainPage;
-
-import java.text.ParseException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -28,18 +25,18 @@ public class MainPageTest extends WebDriverSettings {
     }
 
     @Test
-    public void testName() throws ParseException {
+    public void testName() throws Exception {
         assertThat(mainPage.atMainPage()).isTrue();
         mainPage.typeTextInFastSearchInput("xiaomi Mi");
-        basePage.switchToIFrame(By.xpath("//iframe[@class='modal-iframe']"));
-        basePage.clickToItemOnIframe(2);
-        basePage.switchToDefaultFrameContent();
-        assertThat(basePage.checkMiddlePriceIsMoreThan(100)).isTrue();
+        mainPage.clickToItemOnIframeFastInput(2);
+        assertThat(mainPage.checkMiddlePriceIsMoreThan(232)).isTrue();
     }
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
 }
