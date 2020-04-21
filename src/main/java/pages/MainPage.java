@@ -89,7 +89,7 @@ public class MainPage extends WebDriverSettings {
         return flag;
     }
 
-    //Можно еще так
+    //Можно еще так, но колхозно
     public void clickToItemOnIframe2(int numberOfItem) {
         driver.findElements(By.xpath("(//a[@class='button button_orange product__button'])[" + numberOfItem + "]"));
     }

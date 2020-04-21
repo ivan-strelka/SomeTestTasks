@@ -1,6 +1,7 @@
 package config;
 
 
+import constants.Constants;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -46,11 +47,10 @@ public class WebDriverSettings {
 
         driver.manage().deleteAllCookies();
         driver.manage().window().setSize(new Dimension(1000, 700));
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Constants.TIME_IMPLICITLY_WAIT, TimeUnit.SECONDS);
         driver.get(properties.getProperty("url"));
 
     }
-
 
     public void tearDown() {
         driver.quit();
