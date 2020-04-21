@@ -66,8 +66,7 @@ public class MainPage extends WebDriverSettings {
             System.out.println("Количество товаров = " + elements.size());
             System.out.println("Сумма всех товаров = " + sum);
             System.out.println("Средняя цена за предмет  = " + sum / elements.size());
-            double middleSum = sum / elements.size();
-            return middleSum;
+            return sum / elements.size();
         }
     }
 
